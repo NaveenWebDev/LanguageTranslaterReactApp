@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-  const [option, setOption] = useState([])
   const [to, setTo] = useState("en")
   const [from, setFrom] = useState("en")
   const [input, setInput] = useState("")
   const [Output, setOutput] = useState("")
+  const [option, setOption] = useState([])
 
   useEffect(()=>{
     axios.get("https://libretranslate.de/languages", {headers:{"accept":"application/json"}})
@@ -36,25 +36,29 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+    <div className="form">
+      <div className='from'>
       <h3>From : {from}</h3>
         <select onChange={e=>setFrom(e.target.value)}>
           {option.map(opt=> <option key={opt.code} value={opt.code}>{opt.name}</option> )}
         </select>
       </div>
+      <div className='to'>
       <h3>To : {to}</h3>
-      <div>
         <select onChange={e=>setTo(e.target.value)}>
         {option.map(opt=> <option key={opt.code} value={opt.code}>{opt.name}</option> )}
         </select>
       </div>
+    </div>
 
+    <div className="filed">
       <div>
         <textarea  cols="50" rows="8" onInput={(e)=>setInput(e.target.value)}></textarea>
       </div>
       <div>
         <textarea  cols="50" rows="8" value={Output}></textarea>
       </div>
+    </div>
       <div>
         <button onClick={e=>translate()}>Translate</button>
       </div>

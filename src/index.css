@@ -3,3 +3,32 @@
   padding: 0;
   box-sizing: border-box;
 }
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: silver;
+}
+button{
+  padding: 1rem 3rem;
+}
+.filed{
+  display: flex;
+  width: 50%;
+}
+textarea{
+  width: 100%;
+}
+.form{
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+.from{
+  width: 50%;
+}
+.to{
+  width: 50%;
+}
